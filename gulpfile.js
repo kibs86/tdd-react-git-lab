@@ -3,12 +3,18 @@ const semver = require('semver');
 const eslint = require('gulp-eslint');
 const webserver = require('gulp-webserver');
 const jasmine = require('gulp-jasmine');
+const reporters = require('jasmine-reporters');
 
 
 // test
 gulp.task('test', function(done) {
     gulp.src('spec/*.js')
-        .pipe(jasmine());
+        .pipe(jasmine({
+            reporter: new reporters.TerminalReporter({
+                verbosity: 3,
+                color: true
+            })
+        }));
     done();
 });
 
