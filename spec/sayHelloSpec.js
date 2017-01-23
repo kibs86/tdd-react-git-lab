@@ -11,5 +11,5 @@ describe('Greet', function() {
         var actual = sayHello.greet();
         var expected = 'Hello, Friend!';
         expect(actual).toEqual(expected);
-    })
+    });
 });

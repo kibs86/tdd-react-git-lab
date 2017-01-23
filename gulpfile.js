@@ -2,6 +2,15 @@ const gulp = require('gulp');
 const semver = require('semver');
 const eslint = require('gulp-eslint');
 const webserver = require('gulp-webserver');
+const jasmine = require('gulp-jasmine');
+
+
+// test
+gulp.task('test', function(done) {
+    gulp.src('spec/*.js')
+        .pipe(jasmine());
+    done();
+});
 
 // run
 gulp.task('run', function() {
@@ -39,7 +48,7 @@ gulp.task('version', function(done) {
 });
 
 // default task
-gulp.task('default', gulp.series('version', 'eslint', function(done) {
+gulp.task('default', gulp.series('version', 'eslint', 'test', function(done) {
     console.log('BUILD OK');
     done();
 }));
