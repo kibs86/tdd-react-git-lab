@@ -1,7 +1,16 @@
 exports.greet = function greet(name) {
-    if (name === undefined) {
-        return 'Hello, Friend!';
+    let counter = 0;
+    let hour = getHours();
+
+    if (counter < 5) {
+        if (name === undefined) {
+            counter++;
+            return 'Hello, Friend!';
+        } else {
+            counter++;
+            return 'Hello, ' + name;
+        }
     } else {
-        return 'Hello, ' + name;
+        return "I refuse to say hello.";
     }
 };
