@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/kibs86/tdd-react-git-lab/issues"
   },
-  "homepage": "https://github.com/kibs86/tdd-react-git-lab#readme"
+  "homepage": "https://github.com/kibs86/tdd-react-git-lab#readme",
+  "devDependencies": {
+    "gulp": "github:gulpjs/gulp#4.0"
+  }
 }
