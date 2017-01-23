@@ -9,6 +9,9 @@ React Project Template with automated build.
 3. In the console, type: npm install
 
 ## Usage
+To build:
+
+1. gulp
 
 ## Credits
 
