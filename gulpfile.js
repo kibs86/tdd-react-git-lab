@@ -1,5 +1,14 @@
 const gulp = require('gulp');
 const semver = require('semver');
+const eslint = require('gulp-eslint');
+
+// eslint
+gulp.task('eslint', function () {
+    return gulp.src(['**/*.js','!node_modules/**'])
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
+});
 
 // check node version
 gulp.task('version', function(done) {
@@ -20,7 +29,7 @@ gulp.task('version', function(done) {
 });
 
 // default task
-gulp.task('default', gulp.series('version', function(done) {
+gulp.task('default', gulp.series('version', 'eslint', function(done) {
     console.log('BUILD OK');
     done();
 }));
