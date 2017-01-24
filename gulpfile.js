@@ -53,7 +53,7 @@ gulp.task('jasmine', function(done) {
 
 // run
 gulp.task('run', function() {
-    gulp.src('src')
+    gulp.src('dist')
         .pipe(webserver({
             livereoload: true,
             open: true
