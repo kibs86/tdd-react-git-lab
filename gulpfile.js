@@ -79,7 +79,7 @@ gulp.task('karma', function() {
 
 
 // run tests in Karma
-gulp.task('test', function() {
+gulp.task('test' , function() {
     return gulp.src([
         SPEC_JS,
         SRC_JS
