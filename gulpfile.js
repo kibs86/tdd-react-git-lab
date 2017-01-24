@@ -1,13 +1,46 @@
+/* eslint-disable */
+
 const gulp = require('gulp');
 const semver = require('semver');
 const eslint = require('gulp-eslint');
 const webserver = require('gulp-webserver');
 const jasmine = require('gulp-jasmine');
 const reporters = require('jasmine-reporters');
+const karma = require('gulp-karma-runner');
 
 
-// test
-gulp.task('test', function(done) {
+// start karma server
+gulp.task('karma', function() {
+    return gulp.src([
+        'spec/**/*.js',
+        'src/**/*.js'
+    ],
+        {'read': false}).pipe(
+        karma.server({
+            configFile: __dirname + '/karma.conf.js',
+            'singleRun': false
+        })
+    );
+});
+
+
+// run tests in Karma
+gulp.task('test', function() {
+    return gulp.src([
+        'spec/**/*.js',
+        'src/**/*.js'
+    ],
+        {'read': false}).pipe(
+        karma.runner({
+            configFile: __dirname + '/karma.conf.js',
+            'singleRun': false
+        })
+    );
+});
+
+
+// run tests in Jasmine
+gulp.task('jasmine', function(done) {
     gulp.src('spec/*.js')
         .pipe(jasmine({
             reporter: new reporters.TerminalReporter({
