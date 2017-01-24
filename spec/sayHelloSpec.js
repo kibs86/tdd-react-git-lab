@@ -1,4 +1,8 @@
-var sayHello = require('../src/scripts/sayHello.js');
+// ES5 syntax
+// var sayHello = require('../src/scripts/sayHello.js');
+
+// ES6 syntax
+import * as sayHello from '../src/scripts/sayHello.js';
 
 describe('Greet', function() {
     it('concats Hello and a name', function() {
