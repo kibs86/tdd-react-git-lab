@@ -11,8 +11,11 @@ const webpack = require('webpack-stream');
 const del = require('del');
 
 const DIST = 'dist';
+const SPEC_JS = 'spec/**/*.js';
+const SRC_JS = 'src/**/*.js';
 
 
+// START GULP BUILD AND DEPENDENCIES
 
 // copy html files to dist
 gulp.task('copy', function() {
@@ -37,11 +40,35 @@ gulp.task('webpack', function() {
 });
 
 
+// run
+gulp.task('run', function() {
+    gulp.src(DIST)
+        .pipe(webserver({
+            livereoload: true,
+            open: true
+        }));
+});
+
+
+// build task
+gulp.task('build', gulp.series('clean', gulp.parallel('webpack', 'copy'), 'run', function(done) {
+    console.log('webpack build complete');
+    done();
+}));
+
+// END GULP BUILD AND DEPENDENCIES
+
+
+
+
+
+// START DEFAULT TASK AND DEPENDENCIES
+
 // start karma server
 gulp.task('karma', function() {
     return gulp.src([
-        'spec/**/*.js',
-        'src/**/*.js'
+        SPEC_JS,
+        SRC_JS
     ],
         {'read': false}).pipe(
         karma.server({
@@ -55,8 +82,8 @@ gulp.task('karma', function() {
 // run tests in Karma
 gulp.task('test', function() {
     return gulp.src([
-        'spec/**/*.js',
-        'src/**/*.js'
+        SPEC_JS,
+        SRC_JS'
     ],
         {'read': false}).pipe(
         karma.runner({
@@ -68,8 +95,10 @@ gulp.task('test', function() {
 
 
 // run tests in Jasmine
+// flip this one to 'test' and the karma one to 'karma-test' if you want to include Jasmine in the default task
+// instead of Karma
 gulp.task('jasmine', function(done) {
-    gulp.src('spec/*.js')
+    gulp.src(SPEC_JS)
         .pipe(jasmine({
             reporter: new reporters.TerminalReporter({
                 verbosity: 3,
@@ -79,14 +108,6 @@ gulp.task('jasmine', function(done) {
     done();
 });
 
-// run
-gulp.task('run', function() {
-    gulp.src(DIST)
-        .pipe(webserver({
-            livereoload: true,
-            open: true
-        }));
-});
 
 // eslint
 gulp.task('eslint', function () {
@@ -95,6 +116,7 @@ gulp.task('eslint', function () {
         .pipe(eslint.format())
         .pipe(eslint.failAfterError());
 });
+
 
 // check node version
 gulp.task('version', function(done) {
@@ -115,15 +137,11 @@ gulp.task('version', function(done) {
 });
 
 
-// build task
-gulp.task('build', gulp.series('clean', gulp.parallel('webpack', 'copy'), 'run', function(done) {
-    console.log('webpack build complete');
-    done();
-}));
-
 
 // default task
 gulp.task('default', gulp.series('version', 'eslint', 'test', function(done) {
     console.log('BUILD OK');
     done();
 }));
+
+// END DEFAULT TASK AND DEPENDENCIES
