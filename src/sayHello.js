@@ -1,6 +1,6 @@
 exports.greet = function greet(name) {
     let counter = 0;
-    let hour = getHours();
+    //let hour = getHours();
 
     if (counter < 5) {
         if (name === undefined) {

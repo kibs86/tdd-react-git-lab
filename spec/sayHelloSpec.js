@@ -13,7 +13,7 @@ describe('Greet', function() {
         expect(actual).toEqual(expected);
     });
 
-    it('gives an appropriate hello for the time of day', function() {
+/*    it('gives an appropriate hello for the time of day', function() {
         var currentHour = sayHello.hour();
         var actual = sayHello('World');
         var expected;
@@ -25,7 +25,7 @@ describe('Greet', function() {
             expected = "Good afternoon, World!";
         }
         expect(actual).toEqual(expected);
-    });
+    });*/
 
     it('refuses to say hello after the 4th time the function is called', function() {
         var counter = sayHello.counter;
