@@ -11,6 +11,6 @@ exports.greet = function greet(name) {
             return 'Hello, ' + name;
         }
     } else {
-        return "I refuse to say hello.";
+        return 'I refuse to say hello.';
     }
 };

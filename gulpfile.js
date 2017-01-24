@@ -8,13 +8,32 @@ const jasmine = require('gulp-jasmine');
 const reporters = require('jasmine-reporters');
 const karma = require('gulp-karma-runner');
 const webpack = require('webpack-stream');
+const del = require('del');
+
+const DIST = 'dist';
+
+
+
+// copy html files to dist
+gulp.task('copy', function() {
+    return gulp.src('src/*.html').pipe(gulp.dest(DIST));
+});
+
+
+// clean the dist directory
+gulp.task('clean', function() {
+    console.log('removing dist directory');
+    return del([
+        DIST
+    ]);
+});
 
 
 // build the dist directory
 gulp.task('webpack', function() {
     return gulp.src('src/scripts/app.js')
         .pipe(webpack(require('./webpack.config.js')))
-        .pipe(gulp.dest('dist/scripts/'));
+        .pipe(gulp.dest(DIST + '/scripts/'));
 });
 
 
@@ -62,7 +81,7 @@ gulp.task('jasmine', function(done) {
 
 // run
 gulp.task('run', function() {
-    gulp.src('dist')
+    gulp.src(DIST)
         .pipe(webserver({
             livereoload: true,
             open: true
@@ -71,7 +90,7 @@ gulp.task('run', function() {
 
 // eslint
 gulp.task('eslint', function () {
-    return gulp.src(['**/*.js','!node_modules/**'])
+    return gulp.src(['**/*.js','!dist/**','!node_modules/**'])
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(eslint.failAfterError());
@@ -94,6 +113,14 @@ gulp.task('version', function(done) {
     }
     done();
 });
+
+
+// build task
+gulp.task('build', gulp.series('clean', gulp.parallel('webpack', 'copy'), 'run', function(done) {
+    console.log('webpack build complete');
+    done();
+}));
+
 
 // default task
 gulp.task('default', gulp.series('version', 'eslint', 'test', function(done) {
