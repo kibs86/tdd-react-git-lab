@@ -67,8 +67,7 @@ gulp.task('build', gulp.series('clean', gulp.parallel('webpack', 'copy'), 'run',
 // start karma server
 gulp.task('karma', function() {
     return gulp.src([
-        SPEC_JS,
-        SRC_JS
+        SPEC_JS
     ],
         {'read': false}).pipe(
         karma.server({
