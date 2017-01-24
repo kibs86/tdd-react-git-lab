@@ -83,7 +83,7 @@ gulp.task('karma', function() {
 gulp.task('test', function() {
     return gulp.src([
         SPEC_JS,
-        SRC_JS'
+        SRC_JS
     ],
         {'read': false}).pipe(
         karma.runner({
