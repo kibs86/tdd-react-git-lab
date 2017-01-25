@@ -38,14 +38,23 @@
 
 import React from 'react';
 
-// Note: this is the pre-ES6 way of creating React classes
-var SayHello = React.createClass({
-    render: function() {
+// // Note: this is the pre-ES6 way of creating React classes
+// var SayHello = React.createClass({
+//     render: function() {
+//
+//         return <h1>
+//             Hello, {this.props.name}!
+//         </h1>
+//     }
+// });
+//
+// module.exports = SayHello;
 
-        return <h1>
-            Hello, {this.props.name}!
-        </h1>
+// NOTE: below is ES6 syntax
+class SayHello extends React.Component {
+    render(){
+        return (<h1>Hello, {this.props.name}</h1>);
     }
-});
+}
 
-module.exports = SayHello;
+export default SayHello;
