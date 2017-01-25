@@ -13,16 +13,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-// Note: this is the pre-ES6 way of creating React classes
-var SayHello = React.createClass({
-    render: function() {
-
-        return <h1>
-            Hello, {this.props.name}!
-        </h1>
-    }
-});
+var SayHello = require('./SayHello');
 
 ReactDOM.render(<SayHello name="World" />,
     document.getElementById('app'));
