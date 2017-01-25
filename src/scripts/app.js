@@ -13,7 +13,12 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SayHello from './SayHello';
+//import SayHello from './SayHello';
 
-ReactDOM.render(<SayHello name="World" />,
+// ReactDOM.render(<SayHello name="World" />,
+//     document.getElementById('app'));
+
+import PollContainer from '../containers/PollContainer';
+
+ReactDOM.render(<PollContainer />,
     document.getElementById('app'));
