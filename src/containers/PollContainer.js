@@ -8,15 +8,16 @@ class PollContainer extends React.Component {
     render(){
         return (
             <div className="container">
-                <div className="col-sm-4 col-sm-offset-4">
+                <div className="col-sm-4 col-sm-offset-4 text-center">
                     <PollHeader />
-                    <form>
-                        <PollQuestion />
-                        <PollAnswer />
-                        <PollAnswer />
-                        <PollAnswer />
-                        <PollSubmitButton />
-                    </form>
+                        <form>
+                            <PollQuestion />
+                            <PollAnswer />
+                            <PollAnswer />
+                            <PollAnswer />
+                            <br />
+                            <PollSubmitButton />
+                        </form>
                 </div>
             </div>
         );
