@@ -1,6 +1,6 @@
 import React from 'react';
 
-class PollAnswer extends React.Component{
+class RadioButton extends React.Component{
     render(){
         return (
             <div><input type="radio" name="food" value="pizza" />{this.props.text}</div>
@@ -8,4 +8,4 @@ class PollAnswer extends React.Component{
     }
 }
 
-export default PollAnswer;
+export default RadioButton;

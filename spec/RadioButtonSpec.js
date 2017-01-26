@@ -1,12 +1,12 @@
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
-import PollAnswer from '../src/components/PollAnswer.js';
+import RadioButton from '../src/components/RadioButton.js';
 
-describe('Poll Answer', function() {
+describe('Radio Button', function() {
     var component;
     beforeEach(function() {
         component = TestUtils.renderIntoDocument(
-            <PollAnswer text = 'Pizza' />
+            <RadioButton text = 'Pizza' />
         );
     });
 
@@ -17,7 +17,7 @@ describe('Poll Answer', function() {
     });
     
     it('renders without problems', function () {
-        var pollanswer = TestUtils.renderIntoDocument(<PollAnswer />);
-        expect (pollanswer).toEqual(jasmine.anything());
+        var radiobutton = TestUtils.renderIntoDocument(<RadioButton />);
+        expect (radiobutton).toEqual(jasmine.anything());
     });
 });
