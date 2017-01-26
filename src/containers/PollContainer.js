@@ -25,6 +25,29 @@ class PollContainer extends React.Component {
         console.log("current choice: " + value);
     }
 
+    componentWillMount() {
+        console.log('componentWillMount()');
+    }
+    componentDidMount() {
+        console.log('componentDidMount()');
+    }
+    componentWillReceiveProps() {
+        console.log('componentWillReceiveProps()');
+    }
+    shouldComponentUpdate() {
+        console.log('shouldComponentUpdate()');
+        return true;
+    }
+    componentWillUpdate() {
+        console.log('componentWillUpdate()');
+    }
+    componentDidUpdate() {
+        console.log('componentDidUpdate()');
+    }
+    componentWillUnmount() {
+        console.log('componentWillUnmount()');
+    }
+
     render(){
         var rowStyle = {
             backgroundColor: '#dadada',
