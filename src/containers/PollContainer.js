@@ -4,16 +4,16 @@ import PollQuestion from '../components/PollQuestion';
 import RadioButtonGroup from '../components/RadioButtonGroup';
 import PollSubmitButton from '../components/PollSubmitButton';
 import CurrentChoice from '../components/CurrentChoice';
-import data from '../data/data.json';
 import $ from 'jquery';
 
 class PollContainer extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            header: data.poll.header,
-            question: data.poll.questions[0].question,
-            correctAnswer: data.poll.questions[0].correctAnswer,
+            header: '',
+            question: '',
+            correctAnswer: '',
+            choices: [],
             checkedValue: ''
         };
         this.setCheckedValue = this.setCheckedValue.bind(this);
@@ -66,7 +66,7 @@ class PollContainer extends React.Component {
             padding: '10px'
         };
 
-        const choices = data.poll.questions[0].choices;
+        //const choices = data.poll.questions[0].choices;
         
         return (
             <div className="container">
@@ -79,7 +79,7 @@ class PollContainer extends React.Component {
                             <PollQuestion text={this.state.question}/>
                             <RadioButtonGroup name='answer'
                                               checkedValue={this.state.checkedValue}
-                                              choices={choices}
+                                              choices={this.state.choices}
                                               onChange = {this.setCheckedValue} />
                             <br />
                             <CurrentChoice value={this.state.checkedValue}/>
