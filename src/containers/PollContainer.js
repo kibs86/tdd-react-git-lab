@@ -5,6 +5,7 @@ import RadioButtonGroup from '../components/RadioButtonGroup';
 import PollSubmitButton from '../components/PollSubmitButton';
 import CurrentChoice from '../components/CurrentChoice';
 import data from '../data/data.json';
+import $ from 'jquery';
 
 class PollContainer extends React.Component {
     constructor(props){
@@ -30,6 +31,15 @@ class PollContainer extends React.Component {
     }
     componentDidMount() {
         console.log('componentDidMount()');
+        this.serverRequest = $.get('http://localhost:8000/data/data.json', function (result) {
+            var data = result;
+            this.setState({
+                header: data.poll.header,
+                question: data.poll.questions[0].question,
+                choices: data.poll.questions[0].choices,
+                correctAnswer: data.poll.questions[0].correctAnswer
+            });
+        }.bind(this));
     }
     componentWillReceiveProps() {
         console.log('componentWillReceiveProps()');
