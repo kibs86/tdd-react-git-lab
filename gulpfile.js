@@ -9,10 +9,27 @@ const reporters = require('jasmine-reporters');
 const karma = require('gulp-karma-runner');
 const webpack = require('webpack-stream');
 const del = require('del');
+const jest = require('jest-cli');
 
 const DIST = 'dist';
 const SPEC_JS = 'spec/**/*.js';
 const SRC_JS = 'src/**/*.js';
+
+
+// START GULP JEST TASK
+
+// Run jest
+gulp.task('jest', function(done) {
+    var onComplete = function (result) {
+        if (!result) {
+            console.log('Jest tests failed!');
+        }
+        done();
+    };
+    jest.runCLI({}, __dirname, onComplete);
+});
+
+// END GULP JEST TASK
 
 
 // START GULP BUILD AND DEPENDENCIES
