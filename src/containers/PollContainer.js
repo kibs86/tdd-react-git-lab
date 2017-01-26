@@ -3,6 +3,7 @@ import PollHeader from '../components/PollHeader';
 import PollQuestion from '../components/PollQuestion';
 import RadioButtonGroup from '../components/RadioButtonGroup';
 import PollSubmitButton from '../components/PollSubmitButton';
+import CurrentChoice from '../components/CurrentChoice';
 
 class PollContainer extends React.Component {
     constructor(props){
@@ -50,6 +51,8 @@ class PollContainer extends React.Component {
                                               checkedValue={this.state.checkedValue}
                                               choices={choices}
                                               onChange = {this.setCheckedValue} />
+                            <br />
+                            <CurrentChoice value={this.state.checkedValue}/>
                             <br />
                             <PollSubmitButton />
                         </form>
