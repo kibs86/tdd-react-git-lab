@@ -1,26 +1,26 @@
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
-import PollHeader from '../src/components/PollHeader.js';
+import CurrentChoice from '../src/components/CurrentChoice.js';
 import TestWrapper from '../src/components/TestWrapper.js';
 
-describe('Poll Header', function() {
+describe('Current Choice', function() {
     var component;
     beforeEach(function() {
         component = TestUtils.renderIntoDocument(
             <TestWrapper>
-                <PollHeader text = "Welcome to the Poll!" />
+                <CurrentChoice text = "Current selection: " />
             </TestWrapper>
         );
     });
 
     it('prints a message', function() {
-        var actual = TestUtils.findRenderedDOMComponentWithTag(component,'h1').textContent;
-        var expected = 'Welcome to the Poll!';
+        var actual = TestUtils.findRenderedDOMComponentWithTag(component,'div').textContent;
+        var expected = "Current selection: ";
         expect(actual).toEqual(expected);
     });
 
     it('renders without problems', function () {
-        //var pollheader = TestUtils.renderIntoDocument(<PollHeader />);
+        //var currentchoice = TestUtils.renderIntoDocument(<CurrentChoice />);
         expect (component).toEqual(jasmine.anything());
     });
 });

@@ -1,12 +1,15 @@
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import PollQuestion from '../src/components/PollQuestion.js';
+import TestWrapper from '../src/components/TestWrapper.js';
 
 describe('Poll Question', function() {
     var component;
     beforeEach(function() {
         component = TestUtils.renderIntoDocument(
-            <PollQuestion text = "What's your favorite food?" />
+            <TestWrapper>
+                <PollQuestion text = "What's your favorite food?" />
+            </TestWrapper>
         );
     });
 
@@ -17,7 +20,7 @@ describe('Poll Question', function() {
     });
 
     it('renders without problems', function () {
-        var pollquestion = TestUtils.renderIntoDocument(<PollQuestion />);
-        expect (pollquestion).toEqual(jasmine.anything());
+        //var pollquestion = TestUtils.renderIntoDocument(<PollQuestion />);
+        expect (component).toEqual(jasmine.anything());
     });
 });
