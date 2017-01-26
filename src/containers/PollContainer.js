@@ -13,6 +13,14 @@ class PollContainer extends React.Component {
             correctAnswer: 'Pizza',
             checkedValue: ''
         };
+        this.setCheckedValue = this.setCheckedValue.bind(this);
+    }
+    
+    setCheckedValue (value) {
+        this.setState({
+            checkedValue: value
+        });
+        console.log("current choice: " + value);
     }
 
     render(){
@@ -40,7 +48,8 @@ class PollContainer extends React.Component {
                             <PollQuestion text={this.state.question}/>
                             <RadioButtonGroup name='answer'
                                               checkedValue={this.state.checkedValue}
-                                              choices={choices} />
+                                              choices={choices}
+                                              onChange = {this.setCheckedValue} />
                             <br />
                             <PollSubmitButton />
                         </form>

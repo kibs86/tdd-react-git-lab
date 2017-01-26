@@ -15,6 +15,7 @@ class RadioButtonGroup extends React.Component{
                     name={this.props.name}
                     value={value}
                     checked={checked}
+                    onChange={this.props.onChange}
                 />
             );
         });
