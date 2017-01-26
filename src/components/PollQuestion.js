@@ -22,6 +22,6 @@ function PollQuestion(props) {
 
 PollQuestion.propTypes = {
     text: React.PropTypes.string
-}
+};
 
 export default PollQuestion;

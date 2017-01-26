@@ -29,7 +29,7 @@ class PollContainer extends React.Component {
     checkAnswer (value) {
         if (value===this.state.correctAnswer) {
             console.log('correct');
-        };
+        }
     }
 
     componentWillMount() {

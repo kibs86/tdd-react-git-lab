@@ -29,6 +29,6 @@ RadioButton.propTypes = {
     checked: React.PropTypes.bool,
     onChange: React.PropTypes.func,
     label: React.PropTypes.string
-}
+};
 
 export default RadioButton;

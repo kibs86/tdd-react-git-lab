@@ -1,8 +1,9 @@
+/* eslint-disable */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
 import TestWrapper from '../TestWrapper.js';
-//import jest from 'jest-cli';
 
 describe('Poll Submit Button', function() {
     const PollSubmitButton = require('../PollSubmitButton').default;

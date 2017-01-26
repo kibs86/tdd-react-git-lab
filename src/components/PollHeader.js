@@ -22,6 +22,6 @@ function PollHeader(props) {
 
 PollHeader.propTypes = {
     text: React.PropTypes.string
-}
+};
 
 export default PollHeader;

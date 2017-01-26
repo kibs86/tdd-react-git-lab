@@ -24,4 +24,4 @@ export default CurrentChoice;
 
 CurrentChoice.propTypes = {
     value: React.PropTypes.string
-}
+};
