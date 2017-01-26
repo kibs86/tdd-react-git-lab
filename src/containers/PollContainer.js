@@ -4,14 +4,15 @@ import PollQuestion from '../components/PollQuestion';
 import RadioButtonGroup from '../components/RadioButtonGroup';
 import PollSubmitButton from '../components/PollSubmitButton';
 import CurrentChoice from '../components/CurrentChoice';
+import data from '../data/data.json';
 
 class PollContainer extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            header: 'Welcome to the poll!',
-            question: "What's your favorite food?",
-            correctAnswer: 'Pizza',
+            header: data.poll.header,
+            question: data.poll.questions[0].question,
+            correctAnswer: data.poll.questions[0].correctAnswer,
             checkedValue: ''
         };
         this.setCheckedValue = this.setCheckedValue.bind(this);
@@ -32,11 +33,7 @@ class PollContainer extends React.Component {
             padding: '10px'
         };
 
-        const choices = [
-            {value: 'Tacos', label: 'Tacos'},
-            {value: 'Pizza', label: 'Pizza'},
-            {value: 'Sushi', label: 'Sushi'}
-        ];
+        const choices = data.poll.questions[0].choices;
         
         return (
             <div className="container">
