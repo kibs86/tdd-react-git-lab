@@ -20,4 +20,8 @@ function PollQuestion(props) {
     return(<h3>{props.text}</h3>);
 }
 
+PollQuestion.propTypes = {
+    text: React.PropTypes.string
+}
+
 export default PollQuestion;
