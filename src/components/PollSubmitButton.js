@@ -16,8 +16,8 @@
 // re-structured into stateless functional component
 import React from 'react';
 
-function PollSubmitButton() {
-    return(<button className="btn btn-success" type="submit" value="Submit">Go</button>);
+function PollSubmitButton(props) {
+    return(<button onClick={props.handleClick} className="btn btn-success">Go</button>);
 }
 
 export default PollSubmitButton;
