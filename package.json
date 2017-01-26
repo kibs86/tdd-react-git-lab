@@ -21,6 +21,7 @@
   "homepage": "https://github.com/kibs86/tdd-react-git-lab#readme",
   "devDependencies": {
     "babel-core": "^6.22.1",
+    "babel-jest": "^18.0.0",
     "babel-loader": "^6.2.10",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.22.0",
@@ -33,6 +34,8 @@
     "gulp-webserver": "^0.9.1",
     "jasmine": "^2.5.3",
     "jasmine-reporters": "^2.2.0",
+    "jest": "^18.1.0",
+    "jest-cli": "^18.1.0",
     "json-loader": "^0.5.4",
     "karma": "^1.4.0",
     "karma-chrome-launcher": "^2.0.0",
