@@ -1,7 +1,7 @@
 import React from 'react';
 import PollHeader from '../components/PollHeader';
 import PollQuestion from '../components/PollQuestion';
-import RadioButton from '../components/RadioButton';
+import RadioButtonGroup from '../components/RadioButtonGroup';
 import PollSubmitButton from '../components/PollSubmitButton';
 
 class PollContainer extends React.Component {
@@ -10,10 +10,8 @@ class PollContainer extends React.Component {
         this.state = {
             header: 'Welcome to the poll!',
             question: "What's your favorite food?",
-            answer1: 'Tacos',
-            answer2: 'Pizza',
-            answer3: 'Sushi',
-            correctAnswer: 'Pizza'
+            correctAnswer: 'Pizza',
+            checkedValue: ''
         };
     }
 
@@ -24,6 +22,12 @@ class PollContainer extends React.Component {
             borderRadius: '6px',
             padding: '10px'
         };
+
+        const choices = [
+            {value: 'Tacos', label: 'Tacos'},
+            {value: 'Pizza', label: 'Pizza'},
+            {value: 'Sushi', label: 'Sushi'}
+        ];
         
         return (
             <div className="container">
@@ -34,9 +38,9 @@ class PollContainer extends React.Component {
                     <div className="col-sm-4 col-sm-offset-4 text-center">
                         <form>
                             <PollQuestion text={this.state.question}/>
-                            <RadioButton text={this.state.answer1}/>
-                            <RadioButton text={this.state.answer2}/>
-                            <RadioButton text={this.state.answer3}/>
+                            <RadioButtonGroup name='answer'
+                                              checkedValue={this.state.checkedValue}
+                                              choices={choices} />
                             <br />
                             <PollSubmitButton />
                         </form>
