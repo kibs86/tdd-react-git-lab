@@ -17,6 +17,7 @@ const SRC_JS = 'src/**/*.js';
 
 // START GULP BUILD AND DEPENDENCIES
 
+
 // copy html files to dist
 gulp.task('copy', function() {
     return gulp.src('src/*.html').pipe(gulp.dest(DIST));
@@ -50,11 +51,22 @@ gulp.task('run', function() {
 });
 
 
+// watch task
+gulp.task('watch', function() {
+    gulp.watch(['src/**/*.js',
+        'src/*.html'],gulp.series('webpack','copy'));
+});
+
+
 // build task
-gulp.task('build', gulp.series('clean', gulp.parallel('webpack', 'copy'), 'run', function(done) {
-    console.log('webpack build complete');
-    done();
-}));
+gulp.task('build',
+    gulp.series('clean',
+        gulp.parallel('webpack', 'copy'),
+        gulp.parallel('run', 'watch')));
+// , function(done) {
+//     console.log('webpack build complete');
+//     done();
+// }));
 
 // END GULP BUILD AND DEPENDENCIES
 
