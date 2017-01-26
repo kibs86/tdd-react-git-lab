@@ -38,13 +38,18 @@ module.exports = function(config) {
           entry : './src/scripts/app.js',
           
           module : {
-              loaders: [ {
-                  test : /.js$/,
-                  loader : 'babel-loader',
-                  query: {
-                      presets: ['es2015','react']
+              loaders: [ 
+                  {
+                      test : /.js$/,
+                      loader : 'babel-loader',
+                      query: {
+                        presets: ['es2015','react']
+                      }
+                  },
+                  {
+                      test: /\.json$/,
+                      loader: 'json'
                   }
-              }
               ]
           }
       },
